@@ -2,7 +2,6 @@
 import ProjectsList from '../components/projects/ProjectsList.vue';
 import axios from 'axios';
 const endpoint = 'http://localhost:8000/api/projects/';
-
 export default {
     name: 'HomePage',
     components: { ProjectsList },

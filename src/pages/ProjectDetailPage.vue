@@ -10,7 +10,7 @@ export default {
     }),
     methods: {
         getProject() {
-            axios.get(endpoint + this.$route.params.slug)
+            axios.get(endpoint + this.$route.params.id)
                 .then(res => {
                     this.project = res.data;
                 })

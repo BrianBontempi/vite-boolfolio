@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'ProjectCard',
-    props: { project: Object },
+    props: { project: Object, isDetail: Boolean },
     computed: {
         abstract() {
             const abstract = this.project.content.slice(0, 550);
@@ -24,14 +24,16 @@ export default {
 
 <template>
     <div class="card my-5">
-        <div class="card-header">
+        <div class="card-header d-flex align-items-center justify-content-between">
             <h2>{{ project.title }}</h2>
+            <RouterLink v-if="!isDetail" class="btn btn-sm btn-primary"
+                :to="{ name: 'project-detail', params: { id: project.id } }">Vedi
+            </RouterLink>
         </div>
         <div class="card-body">
-            <p>{{ abstract }}</p>
+            <p>{{ isDetail ? project.content : abstract }}</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            <address>By: {{ project.id }}</address>
             <small>Pubblicato il {{ pubblicationDate }}</small>
         </div>
     </div>
